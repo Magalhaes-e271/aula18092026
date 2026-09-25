@@ -36,7 +36,7 @@ class UsuarioController(private val usuarioService: UsuarioService) {
 
     }
 
-    @PutMapping("/atualizar/{id}")
+    @PutMapping("/{id}")
     fun atualizar(@PathVariable id: Long, @RequestBody usuario: Usuario): ResponseEntity<Usuario> {
         val atualizado = usuarioService.atualizar(id, usuario) ?: return ResponseEntity.notFound().build()
         return ResponseEntity.ok(atualizado)
